@@ -6,8 +6,8 @@ import { FaLocationDot } from "react-icons/fa6";
 import GaugeChart from "./GaugeChart";
 import RadarChart from "./RadarChart";
 import blacktextlogo from "../Images/blacktextlogo.png";
-import { CircularProgressbar } from "react-circular-progressbar"; // Circular Progressbar import
-import 'react-circular-progressbar/dist/styles.css'; // Styles for CircularProgressbar
+import { CircularProgressbar } from "react-circular-progressbar";
+import 'react-circular-progressbar/dist/styles.css';
 import ConstructionProgressChart from "../JS/ConstructionProgressChart.js";
 import html2pdf from 'html2pdf.js/dist/html2pdf.min.js';
 
