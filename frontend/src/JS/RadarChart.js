@@ -7,7 +7,7 @@ const RadarChart = () => {
   // Fetch data from the Flask API every 5 seconds
   useEffect(() => {
     const fetchData = () => {
-      fetch("http://127.0.0.1:5000/api/metrics")
+      fetch("https://onsiteiq-py.onrender.com/api/metrics")
         .then((response) => response.json())
         .then((data) => {
           console.log("API Response:", data);

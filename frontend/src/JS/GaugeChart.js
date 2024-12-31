@@ -7,7 +7,7 @@ const GaugeChart = () => {
   // Fetch and create chart every 5 seconds
   useEffect(() => {
     const intervalId = setInterval(() => {
-      fetch("http://127.0.0.1:5000/api/metrics") // Ensure this matches your Flask API route
+      fetch("https://onsiteiq-py.onrender.com/api/metrics") // Ensure this matches your Flask API route
         .then((response) => response.json())
         .then((data) => {
           console.log(data); // Log the fetched data to verify
