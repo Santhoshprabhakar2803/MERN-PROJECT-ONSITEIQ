@@ -9,6 +9,7 @@ function AlertHistory() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState(null); // State to store the selected image for overlay
 
+  // check
   //ghef
   // Fetch alerts when the component mounts
   useEffect(() => {
