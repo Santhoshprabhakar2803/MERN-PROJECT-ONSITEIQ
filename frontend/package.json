@@ -20,7 +20,7 @@
 },
 
   "scripts": {
-    "postinstall": "npm install react@19.0.0 react-dom@19.0.0",
+    "preinstall": "npm install react@19.0.0 react-dom@19.0.0",
     "start": "set PORT=3001 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

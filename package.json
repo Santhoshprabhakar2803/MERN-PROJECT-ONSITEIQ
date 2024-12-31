@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "postinstall": "npm install react@18.3.1 react-dom@18.3.1",
+    "preinstall": "npm install react@19.0.0 react-dom@19.0.0",
     "start": "set PORT=3001 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
