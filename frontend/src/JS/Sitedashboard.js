@@ -7,7 +7,7 @@ import GaugeChart from "./GaugeChart";
 import RadarChart from "./RadarChart";
 import blacktextlogo from "../Images/blacktextlogo.png";
 import { CircularProgressbar } from "react-circular-progressbar";
-import '../node_modules/react-circular-progressbar/dist/styles.css';
+import '../frontend/node_modules/react-circular-progressbar/dist/styles.css';
 import ConstructionProgressChart from "../JS/ConstructionProgressChart.js";
 import html2pdf from 'html2pdf.js/dist/html2pdf.min.js';
 
