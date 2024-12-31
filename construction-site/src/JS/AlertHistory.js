@@ -11,7 +11,6 @@ function AlertHistory() {
 
   //ghef
   // Fetch alerts when the component mounts
-  
   useEffect(() => {
     const fetchAlertHistory = async () => {
       try {
