@@ -15,7 +15,7 @@ function AlertHistory() {
   useEffect(() => {
     const fetchAlertHistory = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/alerts/history');
+        const response = await fetch('https://onsiteiq-image-server.onrender.com/api/alerts/history');
         const data = await response.json();
         setAlertHistory(data);
         console.log(data);
@@ -63,7 +63,7 @@ function AlertHistory() {
                 </div>
                 {alert.image && (
                   <div className="image-container">
-                    <button className="view-image-button" onClick={() => handleImageClick(`http://localhost:3000${alert.image}`)}>
+                    <button className="view-image-button" onClick={() => handleImageClick(`https://onsiteiq-image-server.onrender.com${alert.image}`)}>
                       View Image
                     </button>
                   </div>

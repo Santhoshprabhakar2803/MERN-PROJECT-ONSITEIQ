@@ -40,7 +40,7 @@ const Alert = () => {
         form.append('image', formData.image);
     
         try {
-          const response = await fetch('http://localhost:3000/api/alerts', {
+          const response = await fetch('https://onsiteiq-image-server.onrender.com/api/alerts', {
             method: 'POST',
             body: form,
           });

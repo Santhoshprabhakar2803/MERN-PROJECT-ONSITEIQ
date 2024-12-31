@@ -8,7 +8,7 @@ const DonutChart = () => {
 
   useEffect(() => {
     // Fetch PPE data from the API
-    fetch("http://localhost:5000/get-ppe")
+    fetch("https://onsiteiq-server.onrender.com/get-ppe")
       .then((response) => response.json())
       .then((fetchedData) => {
         setData(fetchedData); // Set the fetched data

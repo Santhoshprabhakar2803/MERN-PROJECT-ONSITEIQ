@@ -49,7 +49,7 @@ function Register() {
     setLoading(true);
     try {
       // Step 1: Fetch the registered emails from the server
-      const registeredEmailsResponse = await fetch("http://localhost:5000/get-registered-emails");
+      const registeredEmailsResponse = await fetch("https://onsiteiq-server.onrender.com/get-registered-emails");
       const registeredEmailsData = await registeredEmailsResponse.json();
   
       // Step 2: Check if the response is successful and if the email is in the registered list
@@ -67,7 +67,7 @@ function Register() {
       }
   
       // Step 4: Store the registration attempt before sending OTP
-      const storeResponse = await fetch("http://localhost:5000/store-registration-attempt", {
+      const storeResponse = await fetch("https://onsiteiq-server.onrender.com/store-registration-attempt", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
@@ -81,7 +81,7 @@ function Register() {
       }
   
       // Step 5: Call the send-otp API
-      const otpResponse = await fetch("http://localhost:5000/send-otp", {
+      const otpResponse = await fetch("https://onsiteiq-server.onrender.com/send-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
@@ -113,7 +113,7 @@ function Register() {
     const otpString = otp.join(""); // Join array elements into a string
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/verify-otp", {
+      const response = await fetch("https://onsiteiq-server.onrender.com/verify-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp: otpString }),

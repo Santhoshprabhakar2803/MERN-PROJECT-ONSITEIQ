@@ -83,7 +83,7 @@ const EstimationForm = () => {
     }
   
     try {
-      const response = await fetch('http://localhost:5000/api/estimation', {
+      const response = await fetch('https://onsiteiq-server.onrender.com/api/estimation', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -45,7 +45,7 @@ function Material() {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:5000/api/materials/${siteID}`, {
+      const response = await fetch(`https://onsiteiq-server.onrender.com/api/materials/${siteID}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -79,7 +79,7 @@ function Material() {
 
   // Fetch site details and materials on mount
   useEffect(() => {
-    fetch(`http://localhost:5000/api/materials/${siteID}`)
+    fetch(`https://onsiteiq-server.onrender.com/api/materials/${siteID}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -136,7 +136,7 @@ function Material() {
       try {
         // Send the input value directly to the backend
         const response = await fetch(
-          `http://localhost:5000/api/materials/${siteID}/${editingField}`,
+          `https://onsiteiq-server.onrender.com/api/materials/${siteID}/${editingField}`,
           {
             method: "PUT", // Assuming PUT is used for updates
             headers: {
@@ -196,7 +196,7 @@ function Material() {
     if (badgeEditingField !== null && badgeTempValue !== null) {
       try {
         // Send the input value directly to the backend
-        const response = await fetch(`http://localhost:5000/api/materials/${siteID}/${badgeEditingField}`, {
+        const response = await fetch(`https://onsiteiq-server.onrender.com/api/materials/${siteID}/${badgeEditingField}`, {
           method: "PUT", // Assuming PUT is used for updates
           headers: {
             "Content-Type": "application/json",

@@ -55,7 +55,7 @@ function Progress() {
   
       try {
         // Make API call to update the construction status using fetch
-        const response = await fetch(`http://localhost:5000/update-construction-status/${collectionName}`, {
+        const response = await fetch(`https://onsiteiq-server.onrender.com/update-construction-status/${collectionName}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',

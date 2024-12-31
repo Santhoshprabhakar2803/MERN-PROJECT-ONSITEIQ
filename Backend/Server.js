@@ -17,11 +17,11 @@ const { ObjectId } = require('mongodb');
 const PDFDocument = require("pdfkit");
 const fs = require('fs');
 
-// Initialize the mongodb
-const mongodb = express();
+// Initialize the app
+const app = express();
 const PORT = 5000;
 // Serve static files from the 'public' directory
-mongodb.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // MongoDB Configuration
 const mongoUri = "mongodb+srv://saikrishnan209:Sairam_22@cluster0.bvxx4.mongodb.net/";
@@ -29,8 +29,8 @@ const client = new MongoClient(mongoUri);
 const dbName = 'OnsiteIQ';
 
 // Middleware
-mongodb.use(cors());
-mongodb.use(bodyParser.json());
+app.use(cors());
+app.use(bodyParser.json());
 
 // Temporary store for OTPs
 let otpStore = {};
@@ -52,7 +52,7 @@ console.log("EMAIL:", process.env.EMAIL);
 console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
 
       // Endpoint to send OTP
-      mongodb.post("/send-otp", async (req, res) => {
+      app.post("/send-otp", async (req, res) => {
         const { email } = req.body;
 
         if (!email) {
@@ -93,7 +93,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
       });
 
       // Endpoint to verify OTP
-      mongodb.post("/verify-otp", (req, res) => {
+      app.post("/verify-otp", (req, res) => {
         const { email, otp } = req.body;
 
         if (!email || !otp) {
@@ -124,7 +124,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
 
 
       // Extracting emails from Registration
-      mongodb.get("/get-registered-emails", async (req, res) => {
+      app.get("/get-registered-emails", async (req, res) => {
         try {
           // Connect to the database
           const db = client.db(dbName);
@@ -147,7 +147,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
       });
 
       // fetching Login Email and password
-      mongodb.get("/get-login-details", async (req, res) => {
+      app.get("/get-login-details", async (req, res) => {
         try {
           // Connect to the database
           const db = client.db(dbName);
@@ -172,7 +172,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
       
       // New API to store registration attempt
       // Store Registration Attempt Route
-        mongodb.post('/store-registration-attempt', async (req, res) => {
+        app.post('/store-registration-attempt', async (req, res) => {
           const { email } = req.body;
           const date = new Date();
           const attemptDate = date.toISOString().split('T')[0]; // Get the date part
@@ -199,7 +199,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
         });
 
         // Get Registration Attempts (Only when status is null)
-        mongodb.get('/get-registration-attempts', async (req, res) => {
+        app.get('/get-registration-attempts', async (req, res) => {
           try {
             // Connect to the database
             const db = client.db(dbName); // Replace with your database name
@@ -215,9 +215,9 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
           }
         });
 
-        // Update Registration Status (e.g., mongodbrove or Deny)
-      mongodb.post("/update-registration-status", async (req, res) => {
-          const { email, status } = req.body; // Status can be 'mongodbroved' or 'denied'
+        // Update Registration Status (e.g., Approve or Deny)
+      app.post("/update-registration-status", async (req, res) => {
+          const { email, status } = req.body; // Status can be 'approved' or 'denied'
 
           if (!email || !status) {
               return res.status(400).json({ success: false, message: "Email and status are required." });
@@ -277,7 +277,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
       
       
   // Register Validation and adding to login collection based on status
-  mongodb.post('/allow-registration', async (req, res) => {
+  app.post('/allow-registration', async (req, res) => {
     const { email } = req.body;
   
     try {
@@ -303,10 +303,10 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
       });
 
   
-      // Update the status in the Registration-Attempt collection to 'mongodbroved'
+      // Update the status in the Registration-Attempt collection to 'approved'
       const result = await attemptCollection.updateOne(
-        { email, status: null }, // Ensure only pending registrations are mongodbroved
-        { $set: { status: 'mongodbroved' } }
+        { email, status: null }, // Ensure only pending registrations are approved
+        { $set: { status: 'approved' } }
       );
   
       if (result.modifiedCount > 0) {
@@ -325,14 +325,14 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
           subject: 'Registration Successful - Organization Login Details',
           html: `
             <p>Dear User,</p>
-            <p>Your registration has been successfully mongodbroved.</p>
+            <p>Your registration has been successfully approved.</p>
             <p>Here are our organization login details:</p>
             <ul>
               <li><strong>Organization Email:</strong> ${orgEmail}</li>
               <li><strong>Password:</strong> ${password}</li>
             </ul>
             <p>
-              <a href="https://two024-construction-site-onsiteiq-1.onrender.com/login" style="padding: 10px 20px; color: white; background-color: blue; text-decoration: none; border-radius: 5px;">
+              <a href="https://onsiteiq-image-server.onrender.com/login" style="padding: 10px 20px; color: white; background-color: blue; text-decoration: none; border-radius: 5px;">
                 Login to Your Account
               </a>
             </p>
@@ -343,20 +343,20 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
   
         await transporter.sendMail(mailOptions);
   
-        res.json({ success: true, message: 'Registration mongodbroved, email sent successfully!' });
+        res.json({ success: true, message: 'Registration approved, email sent successfully!' });
       } else {
         res.json({ success: false, message: 'No pending registration found for this email or status already updated.' });
       }
     } catch (error) {
-      console.error('Error in mongodbroving registration:', error);
-      res.status(500).json({ success: false, message: 'Error in mongodbroving registration' });
+      console.error('Error in approving registration:', error);
+      res.status(500).json({ success: false, message: 'Error in approving registration' });
     }
   });
 
 
   // Login password updation
         // Update Password
-        mongodb.post("/update-password", async (req, res) => {
+        app.post("/update-password", async (req, res) => {
           const { email, newPassword } = req.body;
 
           if (!email || !newPassword) {
@@ -430,7 +430,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
         });
 
         // fetching personal Login Email and password
-      mongodb.get("/get-personal-login-details", async (req, res) => {
+      app.get("/get-personal-login-details", async (req, res) => {
         try {
           // Connect to the database
           const db = client.db(dbName);
@@ -458,7 +458,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
       const workersCollection = "workersdata";
 
     // API endpoint to fetch all workers
-    mongodb.get("/api/workers", async (req, res) => {
+    app.get("/api/workers", async (req, res) => {
       try {
         const db = client.db(dbName);
         const workers = await db.collection(workersCollection).find().toArray(); // Use the native MongoDB client method
@@ -470,7 +470,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
     });
 
     // API endpoint to add a new worker
-    mongodb.post("/api/workers", async (req, res) => {
+    app.post("/api/workers", async (req, res) => {
         const { name, role, email, phone, location } = req.body;
         try {
           const db = client.db(dbName);
@@ -495,7 +495,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
       });
 
       // Search abr members
-      mongodb.get("/api/workers/filter", async (req, res) => {
+      app.get("/api/workers/filter", async (req, res) => {
         const { role } = req.query; // Getting the role from the query parameters
         try {
           const db = client.db(dbName);
@@ -511,7 +511,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
       });
 
       // DELETE API to remove worker data based on name, email, and phone
-      mongodb.delete("/api/delete-worker", async (req, res) => {
+      app.delete("/api/delete-worker", async (req, res) => {
         const { name, email, phone } = req.body;
 
         if (!name || !email || !phone) {
@@ -541,7 +541,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
       
       // Construction Site
       // API to retrieve sites
-      mongodb.get("/api/sites", async (req, res) => {
+      app.get("/api/sites", async (req, res) => {
         try {
           // Connect to the database
           const client = await MongoClient.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -586,7 +586,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
 
 
       // API to delete a collection
-      mongodb.delete("/api/sites/:id", async (req, res) => {
+      app.delete("/api/sites/:id", async (req, res) => {
         try {
           const siteId = req.params.id; // Site ID corresponds to the collection name
 
@@ -618,7 +618,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
 
       // Construction  process update
       // API to update construction status
-    mongodb.put('/update-construction-status/:collectionName', async (req, res) => {
+    app.put('/update-construction-status/:collectionName', async (req, res) => {
       const { collectionName } = req.params;
       const { siteID, constructionStatus } = req.body;
   
@@ -682,7 +682,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
             
       
       // Map Data process...
-        mongodb.post("/add-marker", async (req, res) => {
+        app.post("/add-marker", async (req, res) => {
           const { siteOwner, siteManager, siteStartDate, managerPhone, groundWidth, groundHeight, latitude, longitude } = req.body;
 
           if (!latitude || !longitude) {
@@ -716,7 +716,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
 
 
         // API to get data from Map-Data Collection
-        mongodb.get('/api/get-map-data', async (req, res) => {
+        app.get('/api/get-map-data', async (req, res) => {
           try {
               // Connect to the MongoDB database
               await client.connect();
@@ -741,7 +741,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
 
         // API to delete a marker from the Map-Data Collection
         // Delete marker API endpoint
-        // mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
+        // app.delete('/api/delete-map-data/:id', async (req, res) => {
         //   const { id } = req.params;
         //   try {
         //       // Find and delete the marker from the MapData collection using its unique ID
@@ -761,7 +761,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
         //   }
         // });
 
-      //   mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
+      //   app.delete('/api/delete-map-data/:id', async (req, res) => {
       //     const { id } = req.params;
           
       //     if (!ObjectId.isValid(id)) {
@@ -786,7 +786,7 @@ console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD);
       // });      
 
       // Delete marker route
-mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
+app.delete('/api/delete-map-data/:id', async (req, res) => {
   const { id } = req.params;
 
   // Validate ObjectId
@@ -815,7 +815,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
 
         // Contract API
         // Endpoint to handle form submission
-          mongodb.post('/submit-project', async (req, res) => {
+          app.post('/submit-project', async (req, res) => {
             const formData = req.body;
 
             // Validate that the `CollectionName` is provided
@@ -850,7 +850,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
 
 
           // To get the contract details from the collection
-          mongodb.get('/api/collections', async (req, res) => {
+          app.get('/api/collections', async (req, res) => {
             const client = new MongoClient(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true });
         
             try {
@@ -881,7 +881,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
         
 
         // API to generate the contract PDF
-        mongodb.get("/api/generate-pdf/:collectionName", async (req, res) => {
+        app.get("/api/generate-pdf/:collectionName", async (req, res) => {
           const collectionName = req.params.collectionName;
         
           try {
@@ -903,7 +903,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
             });
         
             // Pipe the PDF to the response
-            res.setHeader("Content-Type", "mongodblication/pdf");
+            res.setHeader("Content-Type", "application/pdf");
             res.setHeader(
               "Content-Disposition",
               `attachment; filename="${collectionName}_contract.pdf"`
@@ -962,13 +962,13 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
             doc.font("Helvetica-Bold").text(`${collectionData.basicInformation.completionDate}.`);
             doc.moveDown();
         
-            // Permit and mongodbrovals Section
-            addText(`The project has been mongodbroved with Permit Number `, { continued: true });
-            doc.font("Helvetica-Bold").text(`${collectionData.permitAndmongodbroval.permitNumber}, `, { continued: true });
+            // Permit and Approvals Section
+            addText(`The project has been approved with Permit Number `, { continued: true });
+            doc.font("Helvetica-Bold").text(`${collectionData.permitAndApproval.permitNumber}, `, { continued: true });
             doc.font("Helvetica").text(`classified under zoning as `, { continued: true });
-            doc.font("Helvetica-Bold").text(`${collectionData.permitAndmongodbroval.zoningClass}, `, { continued: true });
-            doc.font("Helvetica").text(`and received mongodbroval on `, { continued: true });
-            doc.font("Helvetica-Bold").text(`${collectionData.permitAndmongodbroval.mongodbrovalDate}.`);
+            doc.font("Helvetica-Bold").text(`${collectionData.permitAndApproval.zoningClass}, `, { continued: true });
+            doc.font("Helvetica").text(`and received approval on `, { continued: true });
+            doc.font("Helvetica-Bold").text(`${collectionData.permitAndApproval.approvalDate}.`);
             doc.moveDown();
         
             // Site Details
@@ -1017,7 +1017,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
         
         // PPE
         // API to add PPE items
-        mongodb.post("/ppe", async (req, res) => {
+        app.post("/ppe", async (req, res) => {
           const ppeItems = req.body; // Array of PPE items
 
           try {
@@ -1031,7 +1031,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
         });
 
         // // To update a specific PPE item
-        // mongodb.put("/ppe/:key", async (req, res) => {
+        // app.put("/ppe/:key", async (req, res) => {
         //   const { key } = req.params; // Get the 'key' from the URL
         //   const { value } = req.body; // Get the new 'value' from the request body
 
@@ -1053,7 +1053,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
         //   }
         // });
 
-        mongodb.put("/ppe/:key", async (req, res) => {
+        app.put("/ppe/:key", async (req, res) => {
           const { key } = req.params; // Get the 'key' from URL
           const { value } = req.body; // Get the 'value' from request body
         
@@ -1088,7 +1088,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
         
         
         // To get label and values from the backend
-        mongodb.get("/get-ppe", async (req, res) => {
+        app.get("/get-ppe", async (req, res) => {
           try {
             const db = client.db("OnsiteIQ");
             const collection = db.collection("OnsiteIQ-PPE");
@@ -1103,7 +1103,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
         });
 
         // POST endpoint to handle form submission       
-        mongodb.post('/api/estimation', async (req, res) => {
+        app.post('/api/estimation', async (req, res) => {
           try {
             const estimationData = req.body;
         
@@ -1142,7 +1142,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
         });
 
         // To get data from Estimation-Data
-        mongodb.get('/api/basic-info', async (req, res) => {
+        app.get('/api/basic-info', async (req, res) => {
           try {
             const db = client.db('OnsiteIQ');
             const collection = db.collection('Estimation-Data');
@@ -1166,7 +1166,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
         
         
         // API to fetch data from MongoDB and generate a PDF
-          mongodb.get('/api/generate-pdf', async (req, res) => {
+          app.get('/api/generate-pdf', async (req, res) => {
             const { projectName } = req.query; // Extract projectName from query params
 
             if (!projectName) {
@@ -1318,7 +1318,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
 
         // Material Process....
         // POST API to add data to the respective collection
-        mongodb.post('/api/materials/:siteID', async (req, res) => {
+        app.post('/api/materials/:siteID', async (req, res) => {
           const siteID = req.params.siteID; // Site ID as collection name
           const newMaterial = req.body; // Object with total, used, and labelName
         
@@ -1336,7 +1336,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
         });
 
         
-        mongodb.get('/api/materials/:siteID', async (req, res) => {
+        app.get('/api/materials/:siteID', async (req, res) => {
           const siteID = req.params.siteID; // Site ID as collection name
         
           try {
@@ -1358,7 +1358,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
           }
         });
         
-        mongodb.put('/api/materials/:siteID/:labelName', async (req, res) => {
+        app.put('/api/materials/:siteID/:labelName', async (req, res) => {
           const siteID = req.params.siteID; // Site ID as collection name
           const labelName = req.params.labelName; // Material label to update
           const updatedData = req.body; // Object containing updated total and/or used values
@@ -1386,7 +1386,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
         
 
         // For dashboard data
-        mongodb.get('/api/dashboard/materials/:siteID', async (req, res) => {
+        app.get('/api/dashboard/materials/:siteID', async (req, res) => {
           const siteID = req.params.siteID;
           try {
             const db = client.db('OnsiteIQSITE');
@@ -1414,7 +1414,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
       // SiteOverview Process...
       // // API to Get All Documents from a Collection Based on Site ID
       // Site Overview
-      mongodb.get('/api/site-data/:siteID', async (req, res) => {
+      app.get('/api/site-data/:siteID', async (req, res) => {
         const { siteID } = req.params;
       
         try {
@@ -1433,7 +1433,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
           // Structure response
           const formattedData = {
             basicInformation: {},
-            permitAndmongodbroval: {},
+            permitAndApproval: {},
             siteDetails: {},
             constructionSpecifications: {},
             workforceDetails: {},
@@ -1449,9 +1449,9 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
               formattedData.basicInformation = doc.basicInformation;
             }
       
-            // Permit and mongodbroval
-            if (doc.permitAndmongodbroval) {
-              formattedData.permitAndmongodbroval = doc.permitAndmongodbroval;
+            // Permit and approval
+            if (doc.permitAndApproval) {
+              formattedData.permitAndApproval = doc.permitAndApproval;
             }
       
             // Site details
@@ -1503,7 +1503,7 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
 
       // API for dashboard of button or site status
       // API to get constructionStatus by siteID
-      mongodb.get("/api/construction-status/:siteID", async (req, res) => {
+      app.get("/api/construction-status/:siteID", async (req, res) => {
         const { siteID } = req.params;
 
         // Ensure siteID is provided
@@ -1537,16 +1537,14 @@ mongodb.delete('/api/delete-map-data/:id', async (req, res) => {
       });
 
       
-      
-module.exports = { mongodb };
+
         
 // Start the server
-mongodb.listen(PORT, async () => {
+app.listen(PORT, async () => {
   try {
     await client.connect();
-    console.log("Connected to MongoDBs");
+    console.log("Connected to MongoDB");
     console.log(`Server running on http://localhost:${PORT}`);
-    console.log(`server is runnig`)
   } catch (err) {
     console.error("Failed to connect to MongoDB:", err);
   }

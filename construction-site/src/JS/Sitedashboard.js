@@ -43,7 +43,7 @@ function Sitedashboard() {
   // Site Status
   useEffect(() => {
     if (siteDetails && siteDetails.siteID) {
-      fetch(`http://localhost:5000/api/construction-status/${siteDetails.siteID}`)
+      fetch(`https://onsiteiq-server.onrender.com/api/construction-status/${siteDetails.siteID}`)
         .then((response) => response.json())
         .then((data) => {
           setCurrentStatus(data.constructionStatus);
@@ -55,7 +55,7 @@ function Sitedashboard() {
   // Materials Data
     useEffect(() => {
         if (siteDetails && siteDetails.siteID) {
-            fetch(`http://localhost:5000/api/dashboard/materials/${siteDetails.siteID}`)
+            fetch(`https://onsiteiq-server.onrender.com/api/dashboard/materials/${siteDetails.siteID}`)
                 .then((response) => {
                     if (!response.ok) {
                         throw new Error(`HTTP error! Status: ${response.status}`);

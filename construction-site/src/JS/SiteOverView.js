@@ -21,7 +21,7 @@ function SiteOverView() {
   useEffect(() => {
     if (siteDetails?.siteID) {
       console.log("Fetching data for siteID:", siteDetails.siteID);
-      fetch(`http://localhost:5000/api/site-data/${siteDetails.siteID}`)
+      fetch(`https://onsiteiq-server.onrender.com/api/site-data/${siteDetails.siteID}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);

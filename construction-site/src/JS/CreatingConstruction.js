@@ -32,7 +32,7 @@ function CreatingConstruction() {
   useEffect(() => {
     const fetchSiteData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/sites");
+        const response = await axios.get("https://onsiteiq-server.onrender.com/api/sites");
         setSiteData(response.data);
         console.log("API Response:", response.data);
       } catch (error) {
@@ -76,7 +76,7 @@ function CreatingConstruction() {
     formData.append("contractFile", contractFile);
 
     try {
-      const response = await axios.post("http://localhost:3000/api/sites", formData, {
+      const response = await axios.post("https://onsiteiq-image-server.onrender.com/api/sites", formData, {
         headers: {
           "Content-Type": "multipart/form-data", // Required for file uploads
         },
@@ -105,7 +105,7 @@ function CreatingConstruction() {
 
   const handleDelete = async () => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/sites/${selectedSiteID}`);
+      const response = await axios.delete(`https://onsiteiq-server.onrender.com/api/sites/${selectedSiteID}`);
       console.log(response.data.message);
 
       // Remove the deleted site from the UI

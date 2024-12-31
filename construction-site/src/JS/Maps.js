@@ -59,7 +59,7 @@ function Maps() {
     useEffect(() => {
         const fetchMapData = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/get-map-data');
+                const response = await fetch('https://onsiteiq-server.onrender.com/api/get-map-data');
                 const data = await response.json();
                 setMapData(data);  // Store the API data
             } catch (error) {
@@ -144,7 +144,7 @@ function Maps() {
     
     //     if (window.confirm("Are you sure you want to delete this marker?")) {
     //         try {
-    //             const response = await fetch(`http://localhost:5000/api/delete-map-data/${markerId}`, {
+    //             const response = await fetch(`https://onsiteiq-server.onrender.com/api/delete-map-data/${markerId}`, {
     //                 method: 'DELETE',
     //                 headers: {
     //                     'Content-Type': 'application/json',
@@ -174,7 +174,7 @@ function Maps() {
     
         if (window.confirm("Are you sure you want to delete this marker?")) {
             try {
-                const response = await fetch(`http://localhost:3000/api/delete-map-data/${markerId}`, {
+                const response = await fetch(`https://onsiteiq-image-server.onrender.com/api/delete-map-data/${markerId}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
@@ -235,7 +235,7 @@ function Maps() {
                 longitude: formPosition[1],
             };
 
-            const response = await fetch("http://localhost:5000/add-marker", {
+            const response = await fetch("https://onsiteiq-server.onrender.com/add-marker", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -28,7 +28,7 @@ function Login() {
     }
   
     try {
-      const response = await fetch("http://localhost:5000/get-personal-login-details");
+      const response = await fetch("https://onsiteiq-server.onrender.com/get-personal-login-details");
       const data = await response.json();
   
       if (response.ok && data.success) {
@@ -40,7 +40,7 @@ function Login() {
           return;
         }
   
-        const otpResponse = await fetch("http://localhost:5000/send-otp", {
+        const otpResponse = await fetch("https://onsiteiq-server.onrender.com/send-otp", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email: forgotEmail }),
@@ -70,7 +70,7 @@ function Login() {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/verify-otp", {
+      const response = await fetch("https://onsiteiq-server.onrender.com/verify-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: forgotEmail, otp }),
@@ -103,7 +103,7 @@ function Login() {
     try {
       setLoading(true);
 
-      const response = await fetch("http://localhost:5000/update-password", {
+      const response = await fetch("https://onsiteiq-server.onrender.com/update-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: forgotEmail, newPassword }),
@@ -137,7 +137,7 @@ function Login() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/get-login-details");
+      const response = await fetch("https://onsiteiq-server.onrender.com/get-login-details");
       const data = await response.json();
 
       if (response.ok && data.success) {

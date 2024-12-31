@@ -9,7 +9,7 @@ function ContractDownloadPdf() {
     useEffect(() => {
         const fetchCollections = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/collections');
+                const response = await fetch('https://onsiteiq-server.onrender.com/api/collections');
                 const data = await response.json();
                 setCollections(data);
             } catch (error) {
@@ -22,7 +22,7 @@ function ContractDownloadPdf() {
 
     // Function to handle contract download (placeholder functionality)
     const handleDownload = async (collectionName) => {
-        const response = await fetch(`http://localhost:5000/api/generate-pdf/${collectionName}`, {
+        const response = await fetch(`https://onsiteiq-server.onrender.com/api/generate-pdf/${collectionName}`, {
             method: "GET",
         });
     
