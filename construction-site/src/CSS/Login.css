@@ -1,0 +1,68 @@
+/* Container for video and form */
+.login-video-controls {
+    position: relative; /* Ensures the content can layer above the video */
+    width: 100%;
+    height: 730px;
+    overflow: hidden;
+}
+
+* input{
+    text-align: left;
+}
+
+input::placeholder {
+    color: white; /* Set placeholder color */
+    opacity: 1; /* Optional: Adjust transparency */
+  }
+
+/* Video styles */
+.login-styled-videos {
+    position: absolute; /* Makes the video fill the container */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the video */
+    min-width: 100%; /* Ensures the video covers the width */
+    min-height: 100%; /* Ensures the video covers the height */
+    object-fit: cover; /* Avoids distortion */
+    z-index: -1; /* Sends the video to the background */
+}
+
+/* Form styles */
+.Login-form {
+    position: absolute; /* Positions the form relative to the parent */
+    top: 50%; /* Centers the form vertically */
+    left: 50%; /* Centers the form horizontally */
+    transform: translate(-50%, -50%); /* Centers it properly */
+    color: white; /* Makes the text stand out against the video */
+    font-size: 2rem;
+    text-align: center;
+    z-index: 1; /* Ensures it appears above the video */
+    width: 659px;
+    height: 510px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid #FFF;
+    background: rgba(217, 217, 217, 0.20);
+    backdrop-filter: blur(5.5px);
+}
+
+.login-detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    
+}
+.login-logo{
+    width: 200px;
+    height: 80px;
+    margin-top: 50px;
+}
+
+.login-title{
+    margin-left: -0px;
+    margin-top: 5px;
+    font-family: Saira;
+    font-weight: 400;
+    color: black;
+}

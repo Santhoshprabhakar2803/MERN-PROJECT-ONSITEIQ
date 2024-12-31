@@ -1,0 +1,120 @@
+.EstimationForm-Main{
+  /* margin-left: calc(300px + 1.5rem); */
+  background: linear-gradient(to right, #060606, #060332);
+}
+
+.EstimationForm-Main2{
+  margin-left: calc(300px + 1.5rem);
+  /* background: linear-gradient(to right, #060606, #060332); */
+}
+/* @media (max-width: 768px) {
+  .EstimationForm-Main2{
+    margin-left: 0;
+  }
+} */
+
+.estimation-form {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  max-width: 1200px;
+  
+  margin: 20px auto;
+}
+
+.form-section {
+  margin-bottom: 30px;
+}
+
+.form-section h2 {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 5px;
+}
+
+.input-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.form-control {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.form-control.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-control label {
+  display: block;
+  margin-bottom: 8px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.form-control input,
+.form-control textarea,
+.form-control select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 5px;
+  box-sizing: border-box;
+}
+
+.form-control textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-control input:focus,
+.form-control textarea:focus,
+.form-control select:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  /* padding: 20px; */
+}
+
+.submit-btn-Est-Form {
+  background: rgba(255, 255, 255, 0.1);
+  color: #eeeff4;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.submit-btn-Est-Form:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .input-group {
+    grid-template-columns: 1fr;
+  }
+  
+  .EstimationForm-Main2 {
+    margin-left: 0;
+  }
+}

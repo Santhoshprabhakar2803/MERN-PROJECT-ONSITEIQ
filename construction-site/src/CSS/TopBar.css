@@ -1,0 +1,283 @@
+/* Main container styles */
+.topbar-container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to right, #060606, #060332);
+    color: white;
+    display: flex;
+  }
+  
+  /* Header section */
+  .topbar-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+  }
+  
+  .logo {
+    height: 40px;
+    width: auto;
+  }
+  
+  /* Navigation */
+  .topbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .topbar-nav-list {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .topbar-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .topbar-nav-item:hover {
+    color: #C75C27;
+  }
+  
+  /* Profile Dropdown */
+  .profile-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Search Container */
+  .search-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .search-input {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    width: 300px;
+  }
+  
+  .search-button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+  }
+  
+  /* Sidebar */
+  .sidebar-container {
+    width: 250px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 80px 20px 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .sidebar-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 10px;
+  }
+  
+  .sidebar-nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #C75C27;
+  }
+  
+  /* Weather Section */
+  .weather-container {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .weather-card {
+    text-align: center;
+  }
+  
+  .weather-icon {
+    width: 60px;
+    height: 60px;
+    margin: 10px 0;
+  }
+  
+  .weather-temperature {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .weather-location {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 1.2rem;
+  }
+  
+  /* Main Content Area */
+  .topbar-main {
+    margin-left: 250px;
+    padding: 80px 20px 20px;
+    flex-grow: 1;
+  }
+  
+  .main-content {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 20px;
+  }
+  
+  .main-content-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  /* Logout Button */
+  .logout-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: none;
+    color: #ff4444;
+    padding: 15px 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    margin-top: auto;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+  }
+  
+  .logout-button:hover {
+    background: rgba(255, 68, 68, 0.1);
+  }
+  
+  /* Dropdown Menu */
+  .dropdown-container {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    min-width: 200px;
+    z-index: 101;
+  }
+  
+  .profile-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .edit-icon {
+    cursor: pointer;
+    color: #C75C27;
+  }
+  
+  .profile-email {
+    color: white;
+    margin: 15px 0;
+    text-align: center;
+  }
+  
+  .dropdown-divider {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 15px 0;
+  }
+  
+  .contact-button {
+    width: 100%;
+    padding: 10px;
+    background: #C75C27;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .contact-button:hover {
+    background: #a64b1f;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .topbar-header {
+      padding: 10px;
+    }
+    
+    .search-input {
+      width: 200px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar-container {
+      width: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    .topbar-main {
+      margin-left: 0;
+    }
+    
+    .topbar-nav {
+      gap: 15px;
+    }
+    
+    .topbar-nav-list {
+      gap: 15px;
+    }
+  }

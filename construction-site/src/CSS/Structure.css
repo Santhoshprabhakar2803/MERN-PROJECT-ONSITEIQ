@@ -1,0 +1,123 @@
+* {
+    /* background: linear-gradient(to right, #060606, #060332); */
+    color: white;
+    overscroll-behavior: none;
+}
+
+.MainScreens {
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    flex-direction: column;
+    background: linear-gradient(to right, #060606, #060332);
+    height: 100%;
+}
+
+.MainScreen-Header {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid white;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    /* width: 1500px; */
+    width: fit-content;
+    /* position: fixed; */
+    /* width: 100%; */
+}
+
+.MainScreen-Header.scrolled {
+  backdrop-filter: blur(10px); /* Adds the glass effect */
+  background: rgba(255, 255, 255, 0.4); /* Increase transparency for glass effect */
+}
+
+.MainScreen-Header img {
+    width: 150px;
+    height: 60px;
+    background: transparent;
+}
+ 
+
+.ull {
+    list-style: none; 
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    flex-direction: row;
+    align-items: center; 
+    gap: 20px; 
+    margin-left: 650px;
+    background: transparent;
+  }
+  
+  /* nav list style */
+  .ull li {
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 18px;
+    color: #ffffff;
+    transition: color 0.3s ease; 
+    background: transparent;
+  }
+  
+  ul li:hover {
+    color: #00bcd4; 
+  }
+
+  .Top-Panel {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    flex-grow: 3;
+  }
+  
+  /* Search bar styles */
+  .search-bar {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+  }
+  
+  .search-bar input {
+    padding: 5px 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-right: 10px;
+    color: #060606;
+  }
+  
+  .search-bar button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    background-color: #00bcd4;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .search-bar button:hover {
+    background-color: #0097a7;
+  }
+  
+  .search-bar button svg {
+    font-size: 20px;
+    background: transparent;
+  }
+
+  /* .sidepanel{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 0px;
+    width: 300px;
+    height: 620px;
+    border: 3px solid white;
+    background: linear-gradient(to right, #060606, #060332);
+    border-radius: 10px;
+
+  } */

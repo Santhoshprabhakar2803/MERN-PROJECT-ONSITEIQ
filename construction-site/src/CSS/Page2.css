@@ -1,0 +1,139 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+    padding: 20px;
+    text-align: center;
+    width: 400px;
+    margin-left: 530px;
+    margin-top: 200px;
+    position: relative;
+    background-size: cover;
+  }
+  
+  .heading {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .button {
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+    width: 300px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #4caf50;
+  }
+  
+  .button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+
+  }
+  
+  .bgimg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }
+
+  /* Modal Overlay */
+/* Modal Overlay */
+.modal-overlayss {
+  position: fixed;
+  top: 0;
+  left: 5;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Modal Content */
+.modal-contentss {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 500px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  /* Ensures the modal stays centered even if its size changes */
+  transform: translate(-50%, -50%);
+  position: relative;
+}
+
+/* Modal Title */
+.modal-titless {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form Group */
+.form-groupss {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-groupss label {
+  display: block;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.form-groupss input {
+  width: 300px;
+  padding: 8px;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Form Actions */
+.form-actionsss {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.modal-button.confirmss {
+  background-color: #d9534f;
+  color: white;
+}
+
+.modal-button.cancelss {
+  background-color: #5bc0de;
+  color: white;
+}
+
+.modal-button:hover {
+  opacity: 0.9;
+}

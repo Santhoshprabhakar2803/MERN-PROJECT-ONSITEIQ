@@ -1,0 +1,44 @@
+.SubConstruction{
+    background: linear-gradient(to right, #060606, #060332);
+    height: 100%;
+}
+
+.Construction-details{
+    margin-top: 10px;
+    /* border: 4px solid red; */
+    margin-left: 310px;
+    background-color: rgb(232, 236, 239);
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.Construction-details p {
+    color: #060606;
+    font-style: italic;
+}
+
+.Construction-details strong {
+    color: #060606;
+}
+
+.sub-options{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.sub-options1{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    margin-left: 550px;
+    margin-top: 50px;
+}
+
+.sub-options2{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    margin-left: 550px;
+    margin-top: 50px;
+}

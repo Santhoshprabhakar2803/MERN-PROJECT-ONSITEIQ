@@ -1,0 +1,19 @@
+* {
+    /* background: linear-gradient(to right, #060606, #060332); */
+    color: white;
+    overscroll-behavior: none;
+
+
+    .Sitedashboard{
+        display: flex;
+        flex-direction: column; background: linear-gradient(to right, #060606, #060332); min-height: 100%;
+        padding: 0px;
+      }
+}
+
+.sitedashnoard-main{
+    margin-left: 320px;
+    /* display: flex;
+    flex-direction: row; */
+}
+

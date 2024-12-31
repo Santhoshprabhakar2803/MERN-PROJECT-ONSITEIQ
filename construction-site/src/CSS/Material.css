@@ -1,0 +1,178 @@
+* {
+    /* background: linear-gradient(to right, #060606, #060332); */
+    color: white;
+    overscroll-behavior: none;
+
+
+    .Material-MainScreens{
+        display: flex;
+        flex-direction: column; background: linear-gradient(to right, #060606, #060332); min-height: 100%;
+        padding: 0px;
+      }
+}
+
+  .Material-main{
+    margin-left: 500px;
+    margin-top: 50px;
+    width: 830px;
+    height: auto;
+    justify-items: center;
+  }
+
+
+.Material-sand,
+.Material-steel,
+.Material-mixture,
+.Material-plumbing,
+.Material-brick,
+.Material-cement{
+ width: 240px;
+height: 260px;
+flex-shrink: 0;
+border-radius: 15px;
+background: rgba(255, 255, 255, 0.12);
+box-shadow: 0px 4px 4px 0px #000;
+justify-items: center;
+display: flex;
+flex-direction: column;
+align-items: center;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.Material-content{
+    display: flex;
+    gap: 40px;
+    margin-left: 20px;
+    flex-wrap: wrap;
+}
+
+
+.Material-brick-input,
+.Material-sand-input,
+.Material-steel-input,
+.Material-cement-input,
+.Material-mixture-input,
+.Material-plumbing-input{
+  display: flex;
+width: 100px;
+height: 30px;
+flex-shrink: 0;
+background-color: #f0f0f02a;
+color: #ffffff;
+border-radius: 20px;
+margin-top: 25px;
+align-items: center; 
+justify-content: center;
+border: 2px solid rgba(190, 202, 216, 0.514);
+}
+.brick,
+.sand,
+.steel,
+.mixture,
+.plumbing,
+.cement{
+  width: 120px;
+  height: 120px;
+}
+
+
+
+/* Editable input field */
+.Material-cement-edit, .Material-brick-edit, .Material-sand-edit,
+.Material-steel-edit, .Material-mixture-edit, .Material-plumbing-edit
+ {
+  all: unset; /* Resets all styles */
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 20px;
+  padding: 1px;
+  width: 100px;
+  height: 30px;
+  border: 2px solid #cccccc;
+  box-sizing: border-box;
+  margin-top: 25px;
+}
+
+
+.Material-title {
+    font-size: 18px;
+    text-align: center;
+    color: #ffffff;
+  }
+
+
+  .Material-top-right {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 8px;
+
+    z-index: 10;
+  }
+  
+  .badge-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .badge-qty-input {
+    width: 40px; /* Adjust width to fit values */
+    height: 24px; /* Match the icon height */
+    font-size: 14px;
+    text-align: center; /* Center-align text */
+    outline: none;
+    padding: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .badge-qty {
+    font-size: 14px;
+    font-weight: bold;
+    color: #cccccc;
+  }
+
+/* Modal Overlay */
+.material-content-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.material-modall-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Close Button */
+.material-closee-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.material-close-modal:hover {
+  color: red;
+}
+
+/* Button */
+.material-button {
+  cursor: pointer;
+}
