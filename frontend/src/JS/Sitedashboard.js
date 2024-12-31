@@ -6,8 +6,9 @@ import { FaLocationDot } from "react-icons/fa6";
 import GaugeChart from "./GaugeChart";
 import RadarChart from "./RadarChart";
 import blacktextlogo from "../Images/blacktextlogo.png";
-import { CircularProgressbar } from "react-circular-progressbar";
-import "../CSS/CustomCircularProgressbar.css";
+// import { ProgressBar } from 'react-progressbar.js';
+//import { CircularProgressbar } from 'react-spinner-material'; // Ensure this is correct
+//import "../CSS/CustomCircularProgressbar.css";
 // import 'react-circular-progressbar/dist/styles.css';
 import ConstructionProgressChart from "../JS/ConstructionProgressChart.js";
 import html2pdf from 'html2pdf.js/dist/html2pdf.min.js';
@@ -53,35 +54,35 @@ function Sitedashboard() {
     }
   }, [siteDetails]);
 
-  // Materials Data
-    useEffect(() => {
-        if (siteDetails && siteDetails.siteID) {
-            fetch(`https://onsiteiq-server.onrender.com/api/dashboard/materials/${siteDetails.siteID}`)
-                .then((response) => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-                    return response.text();
-                })
-                .then((data) => {
-                    try {
-                        const jsonData = JSON.parse(data);
-                        if (jsonData.data) {
-                            setMaterialsData(jsonData.data);
-                        } else {
-                            console.error('Unexpected response format:', jsonData);
-                        }
-                    } catch (error) {
-                        console.error('Error parsing JSON:', error);
-                        alert('There was an error parsing the response data.');
-                    }
-                })
-                .catch((error) => {
-                    console.error('Error fetching materials:', error);
-                    alert('There was an error fetching the materials data.');
-                });
-        }
-    }, [siteDetails]);
+//   // Materials Data
+//     useEffect(() => {
+//         if (siteDetails && siteDetails.siteID) {
+//             fetch(`https://onsiteiq-server.onrender.com/api/dashboard/materials/${siteDetails.siteID}`)
+//                 .then((response) => {
+//                     if (!response.ok) {
+//                         throw new Error(`HTTP error! Status: ${response.status}`);
+//                     }
+//                     return response.text();
+//                 })
+//                 .then((data) => {
+//                     try {
+//                         const jsonData = JSON.parse(data);
+//                         if (jsonData.data) {
+//                             setMaterialsData(jsonData.data);
+//                         } else {
+//                             console.error('Unexpected response format:', jsonData);
+//                         }
+//                     } catch (error) {
+//                         console.error('Error parsing JSON:', error);
+//                         alert('There was an error parsing the response data.');
+//                     }
+//                 })
+//                 .catch((error) => {
+//                     console.error('Error fetching materials:', error);
+//                     alert('There was an error fetching the materials data.');
+//                 });
+//         }
+//     }, [siteDetails]);
 
     // Downlaod
     const downloadPDF = () => {
@@ -183,15 +184,19 @@ function Sitedashboard() {
                             <h4 style={{ fontSize: '20px', fontWeight: 'bold', color: 'white' }}>
                                 {material.labelName}
                             </h4>
-                            <CircularProgressbar
+                            {/* <CircularProgressbar
                                 value={(material.used / material.total) * 100}
                                 text={`${((material.used / material.total) * 100).toFixed(1)}%`}
-                                styles={{
-                                    path: { stroke: '#4db8ff' },
-                                    trail: { stroke: '#f4f4f4' },
-                                    text: { fill: 'green', fontSize: '14px', fontWeight: 'bold' }
+                                style={{
+                                    color: '#4db8ff',
+                                    trailColor: '#f4f4f4',
+                                    text: {
+                                        fill: 'green',
+                                        fontSize: '14px',
+                                        fontWeight: 'bold'
+                                    }
                                 }}
-                            />
+                            /> */}
                         </div>
                     )
                 ))}
