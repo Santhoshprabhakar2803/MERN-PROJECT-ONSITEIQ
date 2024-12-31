@@ -345,7 +345,7 @@ function Maps() {
                 <SidePanel />
             </div>
 
-            <div style={{ height: '650px', width: '1200px', marginLeft: '310px', marginTop: '0px' }}>
+            <div style={{ height: '650px', width: '1200px', marginLeft: '310px', marginTop: '20px' }}>
                 <MapContainer
                     center={position}
                     zoom={13}
