@@ -5,7 +5,6 @@ import bg from '../Images/passwordimg.png'
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 function Password() {
-
   // For password input
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
