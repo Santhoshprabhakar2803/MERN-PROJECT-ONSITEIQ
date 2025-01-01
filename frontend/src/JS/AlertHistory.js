@@ -3,7 +3,6 @@ import "../CSS/AlertHistory.css";
 import Structure from './Structure';
 import { FaExclamationTriangle, FaCloudUploadAlt } from 'react-icons/fa';
 
-
 function AlertHistory() {
   const [alertHistory, setAlertHistory] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
