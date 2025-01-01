@@ -5,11 +5,11 @@
   "scripts": {
     "preinstall": "npm install react@19.0.0 react-dom@19.0.0",
     "start": "set PORT=3001 && react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build --env=DISABLE_CSS_MINIMIZER=true",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  
+
   "author": "",
   "license": "ISC",
   "description": "",
