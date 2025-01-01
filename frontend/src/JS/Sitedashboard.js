@@ -13,7 +13,6 @@ import blacktextlogo from "../Images/blacktextlogo.png";
 import ConstructionProgressChart from "../JS/ConstructionProgressChart.js";
 import html2pdf from 'html2pdf.js/dist/html2pdf.min.js';
 
-
 // Chart.js registration
 import { Chart as ChartJS, registerables } from 'chart.js';
 ChartJS.register(...registerables); // Register all necessary components for Chart.js
