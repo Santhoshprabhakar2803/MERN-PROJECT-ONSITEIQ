@@ -1,10 +1,6 @@
 * {
-    /* background: linear-gradient(to right, #060606, #060332); */
     color: white;
     overscroll-behavior: none;
-    /* border: 1px solid red; */
-    /* background: linear-gradient(to right, #060606, #060332); */
-    /* z-index: 1; */
 }
 
 .Progress-Main{
@@ -13,27 +9,10 @@
 
 .progress-MainScreens {
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
     flex-direction: column;
     background: linear-gradient(to right, #060606, #060332);
     height:1300px;
 }
-  /* .sidepanel{
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-    margin-left: 0px;
-    width: 300px;
-    height: 620px;
-    border: 3px solid white;
-    background: linear-gradient(to right, #060606, #060332);
-    border-radius: 10px;
-
-  } */
-
-  /* Progress.css */
 .line-1, .line-2, .line-3, .line-4 {
   position: absolute;
   width: 99px;
@@ -122,15 +101,14 @@ background: rgba(22, 0, 133, 0.62);
   position: absolute;
 
     background-image: repeating-linear-gradient(
-    90deg, /* Angle of the gradient */
+    90deg,
     transparent, 
     transparent 10px, 
     #38B718 10px, 
-    #38B718 25px /* Adjust spacing for dashes */
+    #38B718 25px 
   );
 }
 
-/* Line Dimensions */
 .line-1 {
 width: 5px;
 height: 100px;
@@ -171,7 +149,7 @@ height: 100px;
 
 .line-1, .line-2, .line-3, .line-4 {
   position: absolute;
-  background-color: #000000; /* Fallback color */
+  background-color: #000000; 
   transition: background-color 0.3s ease-in-out;
   background-image: repeating-linear-gradient(
     180deg,
@@ -183,7 +161,6 @@ height: 100px;
 }
 
 
-/* Horizontal Lines */
 .horizontal-line-1 {
   height: 5px;
   width: 200px;
@@ -443,13 +420,10 @@ height: 100px;
   margin-top: 431px;
 }
 
-
-/* Filled State */
 .filled {
   background-color: #38B718;
 }
 
-/* Details */
 .Progress-MainScreens{
   background: linear-gradient(to right, #060606, #060332); 
 }
@@ -472,21 +446,18 @@ height: 100px;
   color: #060606;
 }
 
-
-/* Update pop up */
 .process-popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  /* background: rgba(0, 0, 0, 0.5);  */
   display: flex;
   justify-content: center;
   margin-left: 200px;
   color: #060606;
   align-items: center;
-  z-index: 1000; /* Ensure it's on top */
+  z-index: 1000; 
 }
 
 .process-popup-message {

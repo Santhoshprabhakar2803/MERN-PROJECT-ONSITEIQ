@@ -53,8 +53,6 @@
     z-index: -1;
   }
 
-  /* Modal Overlay */
-/* Modal Overlay */
 .modal-overlayss {
   position: fixed;
   top: 0;
@@ -68,7 +66,6 @@
   z-index: 9999;
 }
 
-/* Modal Content */
 .modal-contentss {
   background: white;
   border-radius: 10px;
@@ -76,19 +73,16 @@
   width: 500px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   text-align: center;
-  /* Ensures the modal stays centered even if its size changes */
   transform: translate(-50%, -50%);
   position: relative;
 }
 
-/* Modal Title */
 .modal-titless {
   font-size: 1.5rem;
   margin-bottom: 20px;
   color: #333;
 }
 
-/* Form Group */
 .form-groupss {
   margin-bottom: 15px;
   text-align: left;
@@ -109,7 +103,6 @@
   border-radius: 5px;
 }
 
-/* Form Actions */
 .form-actionsss {
   margin-top: 20px;
   display: flex;

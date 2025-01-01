@@ -1,11 +1,5 @@
 .alert-container {
-    /* min-height: 100vh; */
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     background: linear-gradient(135deg, #060606, #060332);
-    /* padding: 20px; */
-    /* flex-direction: column; */
 }
 
 .alert-form {
@@ -81,7 +75,7 @@
     font-size: 16px;
     color: black;
 }
-/* Container Styles */
+
 .upload-button-container {
     position: relative;
     display: inline-block;
@@ -93,7 +87,6 @@
     cursor: pointer;
 }
 
-/* Input Styles */
 .upload-input {
     position: absolute;
     top: 0;
@@ -104,7 +97,6 @@
     cursor: pointer;
 }
 
-/* Overlay Styles */
 .upload-button-overlay {
     display: flex;
     align-items: center;
@@ -183,7 +175,6 @@ textarea::placeholder {
     margin: 0;
 }
 
-/* Responsive Design */
 @media (max-width: 480px) {
     .alert-form {
         padding: 24px;

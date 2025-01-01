@@ -1,5 +1,4 @@
 * {
-    /* background: linear-gradient(to right, #060606, #060332); */
     color: white;
     overscroll-behavior: none;
 
@@ -10,11 +9,7 @@
         padding: 0px;
       }
 }
-
- /* Main Container */
-
   
-  /* API Data Section Styling */
   .api-data-container {
     margin-left: 320px;
     padding: 20px;
@@ -59,7 +54,6 @@
     color: #333;
   }
   
-  /* Responsive Design */
   @media (max-width: 768px) {
     .site {
       padding: 0 10px;

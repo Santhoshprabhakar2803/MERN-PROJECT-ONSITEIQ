@@ -1,14 +1,10 @@
 * {
-    /* background: linear-gradient(to right, #060606, #060332); */
     color: white;
     overscroll-behavior: none;
-    /* border: 1px solid red; */
 }
 
 .MainScreens {
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
     flex-direction: column;
     background: linear-gradient(to right, #060606, #060332);
     height: 100%;
@@ -23,14 +19,11 @@
     margin-top: 10px;
     border-radius: 10px;
     padding: 10px;
-    /* width: 1500px; */
     width: fit-content;
-    /* position: fixed; */
-    /* width: 100%; */
 }
 .MainScreen-Header.scrolled {
-  backdrop-filter: blur(10px); /* Adds the glass effect */
-  background: rgba(255, 255, 255, 0.4); /* Increase transparency for glass effect */
+  backdrop-filter: blur(10px); 
+  background: rgba(255, 255, 255, 0.4); 
 }
 
 .MainScreen-Header img {
@@ -52,7 +45,6 @@
     background: transparent;
   }
   
-  /* nav list style */
   .ull li {
     cursor: pointer;
     padding: 10px 15px;
@@ -73,7 +65,6 @@
     flex-grow: 3;
   }
   
-  /* Search bar styles */
   .search-bar {
     display: flex;
     align-items: center;
@@ -134,11 +125,10 @@
 
 
   .styled-videos{
-    width: 100%; /* Fit the width of the container */
+    width: 100%; 
     height: auto;
     border: none;
     border-radius: 20px;
-    /* border: 2px solid white; */
   }
 
   .MainScreen-features{
@@ -146,22 +136,19 @@
     flex-direction: row;
     font-size: larger;
     margin-top: 20px;
-    /* margin-left: 20px; */
     line-height: 2.5;
     gap: 80px;
     width: 1150px;
     margin-bottom: 50px;
-    /* border: 2px solid white; */
   }
 
   .vertical-hr {
-    width: 4px; /* Thickness of the line */
-    height: 500px; /* Height of the line */
-    transform: rotate(0deg); /* Rotate it vertically */
-    background-color: rgb(227, 220, 220); /* Color of the line */
-    border: none; /* Remove default border */
+    width: 4px; 
+    height: 500px; 
+    transform: rotate(0deg); 
+    background-color: rgb(227, 220, 220); 
+    border: none; 
 }
-
 
   .feature1{
     width: 190em;
@@ -172,7 +159,6 @@
     width: 225em;
   }
 
-/* block */
   .MainScreen-layers2{
     display: flex;
     flex-direction: row;
@@ -209,7 +195,6 @@
   .MainScreen-cube1{
     margin-left: 600px;
     margin-top: -300px;
-    /* border: 2px solid white; */
     justify-items: start;
     width: fit-content;
   }
@@ -221,7 +206,6 @@
   .MainScreen-cube2{
     margin-left: 900px;
     margin-top: -230px;
-    /* border: 2px solid white; */
     justify-items: start;
     width: fit-content;
 
@@ -232,7 +216,6 @@
     margin-left: 5px;
   }
 
-  /* safety */
   .MainScreen-safety-detail{
     margin-top: 0px;
     display: flex;
@@ -279,7 +262,6 @@
   .MainScreen-safetycube1{
     margin-left: 520px;
     margin-top: -20px;
-    /* border: 2px solid white; */
     justify-items: start;
     width: fit-content;
   }
@@ -290,7 +272,6 @@
   .MainScreen-safetycube2{
     margin-left: 800px;
     margin-top: -260px;
-    /* border: 2px solid white; */
     justify-items: start;
     width: fit-content;
   }
@@ -300,7 +281,6 @@
   }
 
 
-   /* profile view */
    .MainScreen-profile img{
     border-radius: 50%;
     width: 150px;
@@ -324,7 +304,6 @@
   }
 
   .MainScreen-pro1{
-    /* border: 2px solid white; */
     width: 280px;
     height: fit-content;
     justify-items: center;
@@ -337,7 +316,6 @@
   }
 
   .MainScreen-pro2{
-    /* border: 2px solid white; */
     width: 250px;
     height: fit-content;
     justify-items: center;
@@ -350,7 +328,6 @@
   }
 
   .MainScreen-pro3{
-    /* border: 2px solid white; */
     width: 250px;
     height: fit-content;
     justify-items: center;
@@ -363,7 +340,6 @@
   }
 
   .MainScreen-pro4{
-    /* border: 2px solid white; */
     width: 250px;
     height: fit-content;
     justify-items: center;
@@ -381,13 +357,11 @@
     flex-direction: row;
     font-size: x-large;
     margin-left: 0px;
-    gap: 15px; /* Space between the icons */
-    /* justify-content: space-between; */
+    gap: 15px; 
     align-items: center;
     margin-top: -35px;
   }
 
-/* Contact Layer */
   .MainScreen-contactheading{
     border: 2px solid white;
     height: 20px;
@@ -407,7 +381,6 @@
     display: flex;
     flex-direction: row;
     width: 1000px;
-    /* border: 2px solid white; */
   }
 
   .MainScreen-contactsub1{
@@ -417,13 +390,11 @@
     margin-left: 50px;
     font-weight: bold;
     line-height: 1.5;
-    /* border: 2px solid white; */
   }
 
   .MainScreen-contactsub2{
     font-size: 20px;
     width: 1800px;
-    /* border: 2px solid white; */
     text-align: left;
     margin-top: 25px;
     margin-left: 100px;

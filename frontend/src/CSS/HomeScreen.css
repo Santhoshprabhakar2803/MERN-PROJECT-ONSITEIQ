@@ -1,14 +1,10 @@
-    /* background: linear-gradient(to right, #060606, #060332); */
 * {
-    /* background: linear-gradient(to right, #060606, #060332); */
     color: white;
     overscroll-behavior: none;
 }
 
 .Main {
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
     flex-direction: column;
     background: linear-gradient(to right, #060606, #060332);
     height: 100%;
@@ -27,8 +23,8 @@
 }
 
 .Header.scrolled {
-  backdrop-filter: blur(10px); /* Adds the glass effect */
-  background: rgba(255, 255, 255, 0.4); /* Increase transparency for glass effect */
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.4); 
 }
 
 .Header img {
@@ -50,7 +46,6 @@
     background: transparent;
   }
   
-  /* nav list style */
   .uls li {
     cursor: pointer;
     padding: 10px 15px;
@@ -72,7 +67,6 @@
     flex-grow: 2;
   }
   
-  /* Search bar styles */
   .search-bar {
     display: flex;
     align-items: center;
@@ -138,7 +132,6 @@
     height: 80%; 
     max-height: 600px;
     margin: 20px auto; 
-    /* border: 2px solid white;  */
     border-radius: 10px; 
     overflow: hidden; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
@@ -146,8 +139,8 @@
   }
   
   .styled-video {
-    width: 100%; /* Make the video fit the container */
-    height: auto; /* Keep the aspect ratio */
+    width: 100%; 
+    height: auto; 
   }
 
   .layers2{
@@ -186,7 +179,6 @@
   .cube1{
     margin-left: 750px;
     margin-top: -320px;
-    /* border: 2px solid white; */
     justify-items: start;
     width: fit-content;
   }
@@ -198,7 +190,6 @@
   .cube2{
     margin-left: 1100px;
     margin-top: -220px;
-    /* border: 2px solid white; */
     justify-items: start;
     width: fit-content;
 
@@ -234,10 +225,8 @@
 .cube11{
     margin-left: 10px;
     margin-top: 20px;
-    /* border: 2px solid white; */
     justify-items: start;
     width: 350px;
-    /* width: fit-content; */
     text-align: left;
     line-height: 1.5;
   }
@@ -249,10 +238,8 @@
   .cube22{
     margin-left: 100px;
     margin-top: 20px;
-    /* border: 2px solid white; */
     justify-items: start;
     width: 350px;
-    /* width: fit-content; */
     text-align: left;
     line-height: 1.5;
   }
@@ -263,10 +250,8 @@
   .cube3{
     margin-left: 100px;
     margin-top: 20px;
-    /* border: 2px solid white; */
     justify-items: start;
     width: 350px;
-    /* width: fit-content; */
     text-align: left;
     line-height: 1.5;
   }
@@ -274,7 +259,6 @@
     margin-left: 0px;
   }
 
-  /* safety */
   .safety-detail{
     margin-top: 100px;
     display: flex;
@@ -320,7 +304,6 @@
   .safetycube1{
     margin-left: 700px;
     margin-top: -20px;
-    /* border: 2px solid white; */
     justify-items: start;
     width: fit-content;
   }
@@ -331,7 +314,6 @@
   .safetycube2{
     margin-left: 1100px;
     margin-top: -240px;
-    /* border: 2px solid white; */
     justify-items: start;
     width: fit-content;
   }
@@ -339,8 +321,6 @@
     margin-left: 0px;
   }
 
-
-  /* profile view */
   .profile img{
     border-radius: 50%;
     width: 150px;
@@ -364,7 +344,6 @@
   }
 
   .pro1{
-    /* border: 2px solid white; */
     width: 300px;
     height: fit-content;
   }
@@ -376,7 +355,6 @@
   }
 
   .pro2{
-    /* border: 2px solid white; */
     width: 300px;
     height: fit-content;
   }
@@ -388,7 +366,6 @@
   }
 
   .pro3{
-    /* border: 2px solid white; */
     width: 300px;
     height: fit-content;
   }
@@ -400,7 +377,6 @@
   }
 
   .pro4{
-    /* border: 2px solid white; */
     width: 300px;
     height: fit-content;
   }
@@ -417,8 +393,7 @@
     flex-direction: row;
     font-size: x-large;
     margin-left: 100px;
-    gap: 15px; /* Space between the icons */
-    /* justify-content: space-between; */
+    gap: 15px; 
     align-items: center;
     margin-top: -35px;
   }
@@ -461,8 +436,6 @@
     margin-top: 25px;
   }
 
-
-  /* Demo */
   .Memebers h1{
     align-items: center;
     }

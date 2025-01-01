@@ -1,5 +1,4 @@
 * {
-    /* background: linear-gradient(to right, #060606, #060332); */
     color: white;
     overscroll-behavior: none;
 }
@@ -8,19 +7,6 @@
   background: linear-gradient(to right, #060606, #060332);
   height: 100%;
 }
-
-  /* .sidepanel{
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-    margin-left: 0px;
-    width: 300px;
-    height: 620px;
-    border: 3px solid white;
-    background: linear-gradient(to right, #060606, #060332);
-    border-radius: 10px;
-  } */
 
   .safety-main{
     margin-left: 324px;
@@ -75,7 +61,7 @@ justify-content: center;
 font-size: 22px;
 font-style: normal;
 font-weight: 400;
-line-height: 34px; /* 154.545% */
+line-height: 34px; 
 margin-top: -40px;
 }
 
@@ -101,8 +87,6 @@ border-radius: 8px;
 
 }
 
-
-
 .ppe-category  {
     display: flex;
     align-items: center;
@@ -110,7 +94,7 @@ border-radius: 8px;
     background: rgba(255, 255, 255, 0.12);
     border-radius: 8px;
     padding: 20px;
-    color: #ffffff; /* White text */
+    color: #ffffff; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 600px;
     margin: 20px auto;
@@ -140,7 +124,7 @@ border-radius: 8px;
   }
   
   .helmet-card-image img {
-    width: 160px; /* Adjust image size */
+    width: 160px; 
     height: auto;
     display: block;
     border-radius: 8px;
@@ -152,7 +136,7 @@ border-radius: 8px;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 30px; /* 162.5% */
+  line-height: 30px;
 
 }
 .disclaimer-title{
@@ -166,7 +150,7 @@ border-radius: 8px;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  color: #ffffff; /* White text */
+  color: #ffffff; 
   max-width: 1200px;
   margin: 20px auto;
   height: 240px;
@@ -181,7 +165,7 @@ border-radius: 8px;
 font-size: 18px;
 font-style: normal;
 font-weight: 400;
-line-height: 26px; /* 162.5% */
+line-height: 26px; 
 
 }
 .last-category-phone{
@@ -195,11 +179,6 @@ margin-top: -10px;
 .last-category-image{
   margin-right: 10px;
 }
-
-  
-
-
-
 
 .safety-fallprotection-input,
 .safety-mask-input,
@@ -236,14 +215,10 @@ border: 2px solid rgba(190, 202, 216, 0.514);
 margin-top: 20px;
 }
 
-
-
-
-/* Editable input field */
 .safety-shoes-edit, .safety-gloves-edit, .safety-vest-edit,
 .safety-earmuffs-edit, .safety-mask-edit, .safety-safetyglasses-edit,
 .safety-fallprotection-edit,.safety-helmet-edit {
-  all: unset; /* Resets all styles */
+  all: unset; 
   font-size: 1.2rem;
   text-align: center;
   border-radius: 20px;

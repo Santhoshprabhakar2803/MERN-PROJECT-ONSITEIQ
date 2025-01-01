@@ -1,13 +1,10 @@
 * {
-    /* background: linear-gradient(to right, #060606, #060332); */
     color: white;
     overscroll-behavior: none;
 }
 
 .MainScreens {
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
     flex-direction: column;
     background: linear-gradient(to right, #060606, #060332);
     height: 100%;
@@ -20,15 +17,12 @@
     margin-top: 10px;
     border-radius: 10px;
     padding: 10px;
-    /* width: 1500px; */
     width: fit-content;
-    /* position: fixed; */
-    /* width: 100%; */
 }
 
 .MainScreen-Header.scrolled {
-  backdrop-filter: blur(10px); /* Adds the glass effect */
-  background: rgba(255, 255, 255, 0.4); /* Increase transparency for glass effect */
+  backdrop-filter: blur(10px); 
+  background: rgba(255, 255, 255, 0.4); 
 }
 
 .MainScreen-Header img {
@@ -50,7 +44,6 @@
     background: transparent;
   }
   
-  /* nav list style */
   .ull li {
     cursor: pointer;
     padding: 10px 15px;
@@ -71,7 +64,6 @@
     flex-grow: 3;
   }
   
-  /* Search bar styles */
   .search-bar {
     display: flex;
     align-items: center;
@@ -107,17 +99,3 @@
     font-size: 20px;
     background: transparent;
   }
-
-  /* .sidepanel{
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-    margin-left: 0px;
-    width: 300px;
-    height: 620px;
-    border: 3px solid white;
-    background: linear-gradient(to right, #060606, #060332);
-    border-radius: 10px;
-
-  } */

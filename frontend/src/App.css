@@ -1,10 +1,5 @@
-/* * {
-  background: linear-gradient(to right, #060606, #060332);
-} */
 .App {
-  /* text-align: center; */
   cursor: url('../src/Images/Hammer.cur'), auto;
-  
 }
 
 .App-logo {

@@ -9,10 +9,9 @@
   position: relative;
 }
 
-/* Header Section */
 .About_us-header {
   height: 500px;
-  background: url('../Images/image18.png') center/cover;
+  background: url('../Images/image18.png') center\cover;
   position: relative;
   border-radius: 20px;
   overflow: hidden;
@@ -69,7 +68,6 @@
   box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
 }
 
-/* Cards */
 .About_us-card1,
 .About_us-card2,
 .About_us-card3,
@@ -83,7 +81,6 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Mission and Vision */
 .About_us-card1 {
   display: flex;
   flex-direction: column;
@@ -96,7 +93,6 @@
   margin: 20px 0;
 }
 
-/* Core Values */
 .About_us-card2 {
   text-align: center;
 }
@@ -109,7 +105,6 @@
   align-items: center;
 }
 
-/* Team Section */
 .About_us-card3 {
   text-align: center;
 }
@@ -132,14 +127,13 @@
   transform: translateY(-20px);
 }
 
-/* works fine without these two */
 .Profile-dp {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   margin-bottom: 15px;
   object-fit: cover;
-} */
+} 
 
 .about-pep {
   color: rgba(255, 255, 255, 0.8);
@@ -152,7 +146,6 @@
   margin-bottom: 15px;
 }
 
-/* Contact Section */
 .About_us-card4 {
   text-align: center;
   padding: 40px;
@@ -168,7 +161,6 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* Footer */
 .footer {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
@@ -234,7 +226,6 @@
   color: #4a90e2;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
 
   .header,

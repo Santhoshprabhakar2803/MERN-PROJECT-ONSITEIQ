@@ -1,17 +1,11 @@
 .EstimationForm-Main{
-  /* margin-left: calc(300px + 1.5rem); */
   background: linear-gradient(to right, #060606, #060332);
 }
 
 .EstimationForm-Main2{
   margin-left: calc(300px + 1.5rem);
-  /* background: linear-gradient(to right, #060606, #060332); */
 }
-/* @media (max-width: 768px) {
-  .EstimationForm-Main2{
-    margin-left: 0;
-  }
-} */
+
 
 .estimation-form {
   padding: 20px;
@@ -90,7 +84,6 @@
 .form-actions {
   display: flex;
   justify-content: center;
-  /* padding: 20px; */
 }
 
 .submit-btn-Est-Form {

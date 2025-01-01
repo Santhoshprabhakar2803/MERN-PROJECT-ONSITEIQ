@@ -7,7 +7,6 @@
 .contract-main {
     background: linear-gradient(to right, #060606, #060332);
     height: 100%;
-    /* padding: 30px; */
 }
 
 .contract-pdf {
@@ -49,7 +48,6 @@
 
 .basic-info {
     margin-bottom: 20px;
-    /* border: 2px solid red; */
     width: fit-content;
     text-align: left;
     margin-left: 25px;

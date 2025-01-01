@@ -1,5 +1,4 @@
 * {
-    /* background: linear-gradient(to right, #060606, #060332); */
     color: rgb(255, 255, 255);
     overscroll-behavior: none;
     
@@ -11,8 +10,8 @@
 
 
 .MainScreen-Header.scrolled {
-  backdrop-filter: blur(10px); /* Adds the glass effect */
-  background: rgba(255, 255, 255, 0.4); /* Increase transparency for glass effect */
+  backdrop-filter: blur(10px); 
+  background: rgba(255, 255, 255, 0.4); 
 }
 .GaugeChart-layer1{
   display: flex;

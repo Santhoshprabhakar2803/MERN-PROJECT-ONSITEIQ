@@ -2,7 +2,6 @@
     min-height: 100vh;
     background: linear-gradient(to right, #060606, #060332);
     color: #fff;
-    /* padding: 20px; */
     position: relative;
     display: flex;
     flex-direction: column;
@@ -74,14 +73,14 @@
 
 .form-grid {
   display: flex;
-  flex-wrap: wrap; /* Allows items to wrap to the next row */
-  gap: 20px; /* Horizontal and vertical spacing */
+  flex-wrap: wrap; 
+  gap: 20px; 
   margin-bottom: 20px;
   width: 100%;
 }
 
 .form-grid div {
-  width: calc(50% - 40px); /* Each item takes 50% width minus half of the gap */
+  width: calc(50% - 40px); 
     box-sizing: border-box;
 }
 
@@ -95,12 +94,7 @@
 .form-group-full-width {
     grid-column: 1 / -1;
     width: 100%;
-    /* border: 2px solid red; */
 }
-
-/* label {
-  border: 2px solid red;
-} */
 
 .form-grid label {
     font-size: 0.9rem;

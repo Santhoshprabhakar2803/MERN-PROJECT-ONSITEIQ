@@ -1,13 +1,10 @@
 * {
-    /* background: linear-gradient(to right, #060606, #060332); */
     color: white;
     overscroll-behavior: none;
 }
 
 .MainScreens {
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
     flex-direction: column;
     background: linear-gradient(to right, #060606, #060332);
     height: 100%;
@@ -20,10 +17,7 @@
     margin-top: 10px;
     border-radius: 10px;
     padding: 10px;
-    /* width: 1500px; */
     width: fit-content;
-    /* position: fixed; */
-    /* width: 100%; */
 }
 
 .MainScreen-Header img {
@@ -45,7 +39,6 @@
     background: transparent;
   }
   
-  /* nav list style */
   .ull li {
     cursor: pointer;
     padding: 10px 15px;
@@ -66,7 +59,6 @@
     flex-grow: 3;
   }
   
-  /* Search bar styles */
   .search-bar {
     display: flex;
     align-items: center;
@@ -117,7 +109,6 @@
 
   }
 
-  /* Main */
   .search-suggestions {
     max-height: 200px;
     overflow-y: auto;
@@ -134,9 +125,9 @@
 }
 
 .search-suggestions li {
-    color: #060606;  /* Dark text color */
-    padding: 10px;  /* Optional: Add some padding for better spacing */
-    border-bottom: 1px solid #ccc;  /* Line after each item */
+    color: #060606; 
+    padding: 10px;  
+    border-bottom: 1px solid #ccc; 
 }
 
 
@@ -145,34 +136,6 @@
     width: 350px;
     z-index: 1000;
 }
-
-/* .search-bar input {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 100%;
-    font-size: 14px;
-    box-sizing: border-box;
-}
-
- position: absolute;
-    top: 20px;
-    z-index: 1000;
-    background-color: white;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
-
-.search-bar button {
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: none;
-    border: none;
-    padding: 0 10px;
-    cursor: pointer;
-} */
 
 .popup .leaflet-popup-content {
     display: flex;
