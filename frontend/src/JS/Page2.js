@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import '../CSS/Page2.css';
 import bg from '../Images/passwordimg4.jpg';
+import { useNavigate } from "react-router-dom";
 
 function Page2() {
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -37,17 +39,28 @@ function Page2() {
       alert("An error occurred. Please try again.");
     }
   };
-  
 
+  const Registervalidatin =()=>{
+    navigate("/RegisterValidation")
+  }
+
+  const DownloadContract =()=>{
+    navigate("/ContractDownloadPdf")
+  }
+
+  const DownloadEstimation = ()=>{
+    navigate("/EstimationDownload")
+  }
+  
   return (
     <div className="page-mainScreens">
       <img src={bg} alt="bgimage" className="bgimg" />
 
       <div className="container">
         <h1 className="heading">Welcome to the Official Page</h1>
-        <button className="button" onClick={() => window.location.href = '/RegisterValidation'}>Register Validation</button>
-        <button className="button" onClick={() => window.location.href = '/ContractDownloadPdf'}>Download Contract</button>
-        <button className="button" onClick={() => window.location.href = '/EstimationDownload'}>Download Estimation</button>
+        <button className="button" onClick={Registervalidatin}>Register Validation</button>
+        <button className="button" onClick={DownloadContract}>Download Contract</button>
+        <button className="button" onClick={DownloadEstimation}>Download Estimation</button>
         <button className="button" onClick={() => setShowModal(true)}>Delete Members</button>
       </div>
 

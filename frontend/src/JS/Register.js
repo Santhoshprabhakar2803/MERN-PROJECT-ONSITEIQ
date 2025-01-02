@@ -94,7 +94,7 @@ function Register() {
         alert(otpData.message);
       } else if (otpResponse.ok) {
         // OTP sent successfully
-        alert("OTP sent to your email!");
+        alert("An OTP has been sent to your email. Please check your inbox or spam folder!");
         setShowOTPBoxes(true); // Show OTP input boxes
       } else {
         alert(otpData.message); // Handle errors from OTP API
@@ -107,7 +107,6 @@ function Register() {
     }
   };
     
-  
 
   const handleSubmitOTP = async () => {
     const otpString = otp.join(""); // Join array elements into a string
@@ -120,7 +119,7 @@ function Register() {
       });
       const data = await response.json();
       if (data.success) {
-        alert("OTP verified successfully! Check Your Email for Registration Confirmation.");
+        alert("OTP verification successful! Please check your inbox or spam folder for the registration confirmation email.");
 
         // **Use navigate here to redirect after OTP verification**
         navigate('/Login', { state: { email } });
