@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../CSS/Login.css";
 import logo from "../Images/Main-Logo.png";
 import screenvideo from "../Images/LoginVideo.mp4";
+import { IoArrowBackSharp } from "react-icons/io5";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -161,6 +162,10 @@ function Login() {
     }
   };
 
+  const Home = () => {
+    navigate("/home")
+  }
+
   return (
     <div className="Login">
       <div className="login-video-controls">
@@ -170,6 +175,10 @@ function Login() {
         </video>
 
         <div className="Login-form">
+          <div>
+          <IoArrowBackSharp size={35} fill= "black" className="home-icon" onClick={Home} style={{cursor:"pointer",marginLeft:"-550px",marginTop:"50px"}}/>
+          </div>
+          <div style={{marginTop:"-100px"}}>
           <img src={logo} className="login-logo" alt="Logo" />
           <h2 className="login-title">Login</h2>
           <div className="login-detail">
@@ -233,8 +242,10 @@ function Login() {
             </button>
           </div>
         </div>
-      </div>
+          </div>
 
+          
+      </div>
       {showModal && (
         <div
           style={{

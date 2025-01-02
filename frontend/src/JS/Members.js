@@ -51,7 +51,7 @@ const Modal = ({ show, onClose }) => {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{backgroundColor:' rgba(255, 255, 255, 0.1)'}}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{backgroundColor:' rgba(255, 255, 255, 0.1)',marginTop:'50px'}}>
         <h2 className="modal-title">Add Member</h2>
         <form onSubmit={handleSubmit}>
           {["name", "role", "email", "phone", "location"].map((field) => (

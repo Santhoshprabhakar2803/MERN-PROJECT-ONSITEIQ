@@ -221,20 +221,20 @@ function Maps() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+    
         if (!formPosition) {
             alert("Please click on the map to set the position.");
             return;
         }
-
+    
         try {
-            // Combine form data with latitude and longitude from map click
+            // Combine form data with latitude and longitude
             const dataToSubmit = {
                 ...formData,
                 latitude: formPosition[0],
                 longitude: formPosition[1],
             };
-
+    
             const response = await fetch("https://onsiteiq-server.onrender.com/add-marker", {
                 method: "POST",
                 headers: {
@@ -242,11 +242,14 @@ function Maps() {
                 },
                 body: JSON.stringify(dataToSubmit),
             });
-
+    
             const result = await response.json();
             if (response.ok) {
-                console.log(result);
                 alert("Marker submitted successfully!");
+                setMarkers((prevMarkers) => [
+                    ...prevMarkers,
+                    { position: [dataToSubmit.latitude, dataToSubmit.longitude], formData: dataToSubmit },
+                ]);
                 setFormData({
                     siteOwner: '',
                     siteManager: '',
@@ -255,9 +258,7 @@ function Maps() {
                     groundWidth: '',
                     groundHeight: '',
                 });
-                setFormPosition(null); // Reset position after submission
-                // Reload the page to fetch and display new markers
-                window.location.reload();
+                setFormPosition(null); // Reset marker position
             } else {
                 alert(result.message || "Error submitting marker. Please try again.");
             }
@@ -266,7 +267,7 @@ function Maps() {
             alert("Error submitting marker. Please try again.");
         }
     };
-    
+
       const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
@@ -345,7 +346,7 @@ function Maps() {
                 <SidePanel />
             </div>
 
-            <div style={{ height: '650px', width: '1200px', marginLeft: '310px', marginTop: '20px' }}>
+            <div style={{ height: '650px', width: '1200px', marginLeft: '310px', marginTop: '40px' }}>
                 <MapContainer
                     center={position}
                     zoom={13}
@@ -428,81 +429,250 @@ function Maps() {
                     ))}
 
                     {formPosition && (
-                        <Marker position={formPosition} icon={customMarker}>
-                            <Popup>
-                                <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-                                    <div>
-                                        <label style={{color:"black",fontWeight:"bold",marginRight:"10px"}}>Site Owner:</label>
-                                        <input style={{color:"black",border:'1px solid black'}}
-                                            type="text"
-                                            value={formData.siteOwner}
-                                            onChange={(e) =>
-                                                setFormData({ ...formData, siteOwner: e.target.value })
-                                            }
-                                        />
-                                    </div>
-                                    <div>
-                                        <label style={{color:"black",fontWeight:"bold",marginRight:"10px"}}>Site Manager:</label>
-                                        <input style={{color:"black",border:'1px solid black'}}
-                                            type="text"
-                                            value={formData.siteManager}
-                                            onChange={(e) =>
-                                                setFormData({ ...formData, siteManager: e.target.value })
-                                            }
-                                        />
-                                    </div>
-                                    <div>
-                                        <label style={{color:"black",fontWeight:"bold",marginRight:"10px"}}>Start Date:</label>
-                                        <input style={{color:"black",border:'1px solid black'}}
-                                            type="date"
-                                            value={formData.siteStartDate}
-                                            onChange={(e) =>
-                                                setFormData({ ...formData, siteStartDate: e.target.value })
-                                            }
-                                        />
-                                    </div>
-                                    <div>
-                                        <label style={{color:"black",fontWeight:"bold",marginRight:"10px"}}>Manager Phone:</label>
-                                        <input style={{color:"black",border:'1px solid black'}}
-                                            type="text"
-                                            value={formData.managerPhone}
-                                            onChange={(e) =>
-                                                setFormData({ ...formData, managerPhone: e.target.value })
-                                            }
-                                        />
-                                    </div>
-                                    <div>
-                                        <label style={{color:"black",fontWeight:"bold",marginRight:"10px"}}>Ground Width:</label>
-                                        <input style={{color:"black",border:'1px solid black'}}
-                                            type="text"
-                                            value={formData.groundWidth}
-                                            onChange={(e) =>
-                                                setFormData({ ...formData, groundWidth: e.target.value })
-                                            }
-                                        />
-                                    </div>
-                                    <div>
-                                        <label style={{color:"black",fontWeight:"bold",marginRight:"10px"}}>Ground Height:</label>
-                                        <input style={{color:"black",border:'1px solid black'}}
-                                            type="text"
-                                            value={formData.groundHeight}
-                                            onChange={(e) =>
-                                                setFormData({ ...formData, groundHeight: e.target.value })
-                                            }
-                                        />
-                                    </div>
-                                    <div style={{ color: "black" }}>
-                                        <strong style={{ color: "black", fontSize: "20px" }}>Latitude: </strong>{formPosition[0]}
-                                    </div>
-                                    <div style={{ color: "black" }}>
-                                        <strong style={{ color: "black", fontSize: "20px" }}>Longitude: </strong>{formPosition[1]}
-                                    </div>
-                                    <button style={{backgroundColor:"green",borderRadius:"10px",color:"white",padding:"10px"}}
-                                    type="submit">Add Marker</button>
-                                </form>
-                            </Popup>
-                        </Marker>
-                    )}
+                                <div
+                                    style={{
+                                        position: "fixed",
+                                        top: "100px",
+                                        left: "50%",
+                                        transform: "translateX(-50%)",
+                                        zIndex: 1000,
+                                        backgroundColor: "white",
+                                        padding: "30px",
+                                        borderRadius: "15px",
+                                        boxShadow: "0px 8px 15px rgba(0, 0, 0, 0.2)",
+                                        width: "700px",
+                                        maxWidth: "90%",
+                                    }}
+                                >
+                                    {/* Close Button */}
+                                    <button
+                                        style={{
+                                            position: "absolute",
+                                            top: "10px",
+                                            right: "10px",
+                                            backgroundColor: "red",
+                                            color: "white",
+                                            border: "none",
+                                            borderRadius: "50%",
+                                            width: "30px",
+                                            height: "30px",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            cursor: "pointer",
+                                            fontWeight: "bold",
+                                            fontSize: "16px",
+                                        }}
+                                        onClick={() => setFormPosition(null)} // Hide the form when clicked
+                                    >
+                                        X
+                                    </button>
+
+                                    <form
+                                        onSubmit={handleSubmit}
+                                        style={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            gap: "20px",
+                                        }}
+                                    >
+                                        <div
+                                            style={{
+                                                display: "flex",
+                                                justifyContent: "space-between",
+                                                gap: "20px",
+                                            }}
+                                        >
+                                            <div style={{ flex: 1 }}>
+                                                <label
+                                                    style={{
+                                                        color: "black",
+                                                        fontWeight: "bold",
+                                                        marginBottom: "5px",
+                                                        display: "block",
+                                                    }}
+                                                >
+                                                    Site Owner:
+                                                </label>
+                                                <input
+                                                   style={{
+                                                    color: "black",
+                                                    fontWeight: "bold",
+                                                    marginBottom: "5px",
+                                                    display: "block",
+                                                    }}
+                                                    type="text"
+                                                    name="siteOwner"
+                                                    value={formData.siteOwner}
+                                                    onChange={handleInputChange}
+                                                    required
+                                                />
+                                            </div>
+                                            <div style={{ flex: 1 }}>
+                                                <label
+                                                    style={{
+                                                        color: "black",
+                                                        fontWeight: "bold",
+                                                        marginBottom: "5px",
+                                                        display: "block",
+                                                    }}
+                                                >
+                                                    Site Manager:
+                                                </label>
+                                                <input
+                                                    style={{
+                                                        color: "black",
+                                                        border: "1px solid black",
+                                                        width: "100%",
+                                                        padding: "10px",
+                                                    }}
+                                                    name="siteManager"
+                                                    value={formData.siteManager}
+                                                    onChange={handleInputChange}
+                                                    required
+                                                    
+                                                />
+                                            </div>
+                                        </div>
+                                        <div
+                                            style={{
+                                                display: "flex",
+                                                justifyContent: "space-between",
+                                                gap: "20px",
+                                            }}
+                                        >
+                                            <div style={{ flex: 1 }}>
+                                                <label
+                                                    style={{
+                                                        color: "black",
+                                                        fontWeight: "bold",
+                                                        marginBottom: "5px",
+                                                        display: "block",
+                                                    }}
+                                                >
+                                                    Start Date:
+                                                </label>
+                                                <input
+                                                    style={{
+                                                        color: "black",
+                                                        border: "1px solid black",
+                                                        width: "100%",
+                                                        padding: "10px",
+                                                    }}
+                                                    type="date"
+                                                    name="siteStartDate"
+                                                    value={formData.siteStartDate}
+                                                    onChange={handleInputChange}
+                                                    required
+                                                    
+                                                />
+                                            </div>
+                                            <div style={{ flex: 1 }}>
+                                                <label
+                                                    style={{
+                                                        color: "black",
+                                                        fontWeight: "bold",
+                                                        marginBottom: "5px",
+                                                        display: "block",
+                                                    }}
+                                                >
+                                                    Manager Phone:
+                                                </label>
+                                                <input
+                                                    style={{
+                                                        color: "black",
+                                                        border: "1px solid black",
+                                                        width: "100%",
+                                                        padding: "10px",
+                                                    }}
+                                                    name="managerPhone"
+                                                    value={formData.managerPhone}
+                                                    onChange={handleInputChange}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                        <div
+                                            style={{
+                                                display: "flex",
+                                                justifyContent: "space-between",
+                                                gap: "20px",
+                                            }}
+                                        >
+                                            <div style={{ flex: 1 }}>
+                                                <label
+                                                    style={{
+                                                        color: "black",
+                                                        fontWeight: "bold",
+                                                        marginBottom: "5px",
+                                                        display: "block",
+                                                    }}
+                                                >
+                                                    Ground Width:
+                                                </label>
+                                                <input
+                                                    style={{
+                                                        color: "black",
+                                                        border: "1px solid black",
+                                                        width: "100%",
+                                                        padding: "10px",
+                                                    }}
+                                                    name="groundWidth"
+                                                    value={formData.groundWidth}
+                                                    onChange={handleInputChange}
+                                                    required
+                                                />
+                                            </div>
+                                            <div style={{ flex: 1 }}>
+                                                <label
+                                                    style={{
+                                                        color: "black",
+                                                        fontWeight: "bold",
+                                                        marginBottom: "5px",
+                                                        display: "block",
+                                                    }}
+                                                >
+                                                    Ground Height:
+                                                </label>
+                                                <input
+                                                    style={{
+                                                        color: "black",
+                                                        border: "1px solid black",
+                                                        width: "100%",
+                                                        padding: "10px",
+                                                    }}
+                                                    name="groundHeight"
+                                                    value={formData.groundHeight}
+                                                    onChange={handleInputChange}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                        <div style={{ color: "black" }}>
+                                            <strong style={{ color: "black", fontSize: "20px" }}>Latitude: </strong>
+                                            {formPosition[0]}
+                                        </div>
+                                        <div style={{ color: "black" }}>
+                                            <strong style={{ color: "black", fontSize: "20px" }}>Longitude: </strong>
+                                            {formPosition[1]}
+                                        </div>
+                                        <button
+                                            style={{
+                                                backgroundColor: "green",
+                                                borderRadius: "10px",
+                                                color: "white",
+                                                padding: "15px 20px",
+                                                alignSelf: "center",
+                                                fontSize: "16px",
+                                            }}
+                                            type="submit"
+                                        >
+                                            Add Marker
+                                        </button>
+                                    </form>
+                                </div>
+                            )}
+
                 </MapContainer>
             </div>           
 
@@ -553,7 +723,7 @@ function Maps() {
             }}
             onClick={() => navigate("/Contract", { state: { email } })}
           >
-            Contact
+            Contract
           </button>
         </div>
       )}   

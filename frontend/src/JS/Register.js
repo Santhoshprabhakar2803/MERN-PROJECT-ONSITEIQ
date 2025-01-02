@@ -3,6 +3,7 @@ import "../CSS/Register.css";
 import logo from "../Images/Main-Logo.png";
 import screenvideo from "../Images/LoginVideo.mp4";
 import { useNavigate } from "react-router-dom"; // Import useNavigate at the top
+import { IoArrowBackSharp } from "react-icons/io5";
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -106,7 +107,9 @@ function Register() {
       setLoading(false);
     }
   };
-    
+  const Home = () => {
+    navigate("/home")
+  }
 
   const handleSubmitOTP = async () => {
     const otpString = otp.join(""); // Join array elements into a string
@@ -176,7 +179,11 @@ function Register() {
         </video>
 
         <div className="Register-form">
-          <img src={logo} className="register-logo" alt="Logo" />
+        <div>
+          <IoArrowBackSharp size={35} fill= "black" className="home-icon" onClick={Home} style={{cursor:"pointer",marginLeft:"-550px",marginTop:"50px"}}/>
+        </div>
+        <div style={{marginTop:"-100px"}}>
+        <img src={logo} className="register-logo" alt="Logo" />
           <h2 className="register-title">Register</h2>
           <div className="register-detail">
             <input
@@ -318,6 +325,8 @@ function Register() {
             </div>
           )}
         </div>
+        </div>
+          
       </div>
 
       {/* Spinner Animation Keyframes */}

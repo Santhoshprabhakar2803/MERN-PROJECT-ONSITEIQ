@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../CSS/EstimationDownload.css";
 import Structure from './Structure';
 
-function EstimationDownload() {
+function DownloadEstimationData() {
   const [basicInfoList, setBasicInfoList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -50,40 +50,46 @@ function EstimationDownload() {
     }
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
+  // Render structure (Header, Sidepanel) before fetching data
   return (
     <div className="EstimationDownload-Main">
-        <div>
-            <Structure/>
-        </div>
-        <div className="EstimationDownload">
-      {basicInfoList.map((item, index) => (
-        <div key={index} className="basic-info-block">
-          <h3>{item.basicInfo.projectName}</h3>
-          <p><strong>Location:</strong> {item.basicInfo.projectLocation}</p>
-          <p><strong>Estimation Date:</strong> {item.basicInfo.estimationDate}</p>
-          <p><strong>Site Supervisor:</strong> {item.basicInfo.siteSupervisor}</p>
-          <p><strong>Project Scope:</strong> {item.basicInfo.projectScope}</p>
-          
-          <button
-            className="download-button"
-            onClick={() => handleDownload(item.basicInfo.projectName)}
-          >
-            Download Estimation
-          </button>
-        </div>
-      ))}
-    </div>
+      <Structure /> {/* Assuming Structure includes Header and SidePanel */}
 
+      {/* Conditionally render content based on API request status */}
+      <div className="EstimationDownload">
+        {loading ? (
+          <div>Loading...</div>
+        ) : error ? (
+          <>
+            {/* Show header and side panel even if there is an error */}
+            <div>Error: {error}</div>
+            <p>Try again later</p>
+          </>
+        ) : (
+          basicInfoList.length > 0 ? (
+            basicInfoList.map((item, index) => (
+              <div key={index} className="basic-info-block">
+                <h3>{item.basicInfo.projectName}</h3>
+                <p><strong>Location:</strong> {item.basicInfo.projectLocation}</p>
+                <p><strong>Estimation Date:</strong> {item.basicInfo.estimationDate}</p>
+                <p><strong>Site Supervisor:</strong> {item.basicInfo.siteSupervisor}</p>
+                <p><strong>Project Scope:</strong> {item.basicInfo.projectScope}</p>
+                
+                <button
+                  className="download-button"
+                  onClick={() => handleDownload(item.basicInfo.projectName)}
+                >
+                  Download Estimation
+                </button>
+              </div>
+            ))
+          ) : (
+            <div>No data available</div>
+          )
+        )}
+      </div>
     </div>
   );
 }
 
-export default EstimationDownload;
+export default DownloadEstimationData;
